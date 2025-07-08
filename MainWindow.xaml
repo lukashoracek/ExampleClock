@@ -6,14 +6,8 @@
         xmlns:local="clr-namespace:ExampleClock"
         mc:Ignorable="d"
         Title="Example C# analog clock" Height="500" Width="500">
-    <local:Clock x:Name="Clock" RenderTransformOrigin="0.5,0.5">
-        <local:Clock.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform/>
-                <TranslateTransform X="0" Y="40"/>
-            </TransformGroup>
-        </local:Clock.RenderTransform>
-    </local:Clock>
+    <Grid Height="500">
+        <CheckBox x:Name="SmoothSecondHandCheckbox" Content="Smooth second hand" Margin="10,10,-10,-10" Checked="CheckBox_CheckedChanged" Unchecked="CheckBox_CheckedChanged" />
+        <local:Clock x:Name="Clock" Margin="-10,45,10,-45" />
+    </Grid>
 </Window>

@@ -10,6 +10,15 @@ namespace ExampleClock
         public MainWindow()
         {
             InitializeComponent();
+            Clock.SmoothSeconds = SmoothSecondHandCheckbox.IsChecked.GetValueOrDefault(false);
+        }
+
+        private void CheckBox_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+            if (sender.Equals(SmoothSecondHandCheckbox))
+            {
+                Clock.SmoothSeconds = SmoothSecondHandCheckbox.IsChecked.GetValueOrDefault(false);
+            }
         }
     }
 }

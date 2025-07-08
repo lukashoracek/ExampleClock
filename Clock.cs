@@ -11,6 +11,8 @@ namespace ExampleClock
 {
     class Clock : StackPanel
     {
+        public bool SmoothSeconds = false;
+
         private Canvas canvas;
         private Ellipse clockOutline;
         private Ellipse clockCenter;
@@ -18,8 +20,6 @@ namespace ExampleClock
         private Line lineMinutes;
         private Line lineSeconds;
         private DispatcherTimer tickTimer;
-
-        private const bool smoothSeconds = false;
 
         public Clock()
         {
@@ -84,7 +84,7 @@ namespace ExampleClock
             double minutes = dt.Minute + dt.Second / 60.0D;
             double seconds = dt.Second;
             seconds += dt.Millisecond / 1000.0D + dt.Microsecond / 1000000.0D + dt.Nanosecond / 1000000000.0D;
-            if (!smoothSeconds) seconds = Math.Floor(seconds);
+            if (!SmoothSeconds) seconds = Math.Floor(seconds);
 
             double hoursAngleDegrees = hours12 / 12.0D * 360.0D - 90.0D;
             double hoursAngleRadians = ToRadians(hoursAngleDegrees);
